@@ -1,9 +1,16 @@
-from mov.api.call import gen_url, req, get_key, req2df, list2df
+from mov.api.call import gen_url, req, get_key, req2df, list2df, save2df
 import pandas as pd
+
+
+def test_save2df():
+    df = save2df()
+    assert isinstance(df, pd,DataFrame)
+    assert 'load_dt' in df.columns
+
 
 def test_list2df():
     df = list2df()
-    print(df)
+    #print(df)
     assert isinstance(df, pd.DataFrame)
     assert 'rnum' in df.columns
     assert 'openDt' in df.columns
@@ -12,7 +19,7 @@ def test_list2df():
 
 def test_req2df():
     l = req2df()
-    print(l) #리스트
+    #print(l) #리스트
     assert len(l) > 0
     v = l[0]
     assert 'rnum' in v.keys()
