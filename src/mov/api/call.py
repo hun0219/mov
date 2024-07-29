@@ -7,7 +7,7 @@ def save2df(load_dt='20120101'):
     df = list2df(load_dt)
     # df에 load_dt 컬럼 추가 (조회 일자 YYYYYMMDD 형식)
     # 아래 파일 저장시 load_dt 기본으로 파티셔닝
-    df['load_dt'] = '20120101'
+    df['load_dt']= load_dt
     print(df.head(5))
     df.to_parquet('~/tmp/test_parquet',partition_cols=['load_dt'])
     return df
