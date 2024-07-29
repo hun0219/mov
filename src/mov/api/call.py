@@ -18,7 +18,7 @@ def list2df(load_dt='20120101'):
     return df
 
 def req2df(load_dt='20120101') -> list:
-    _, data = req()
+    _, data = req(load_dt)
     #data.get('').get('')
     l = data['boxOfficeResult']['dailyBoxOfficeList']
 #    l = [
@@ -35,7 +35,7 @@ def get_key():
     key = os.getenv('MOVIE_API_KEY')
     return key
 
-def req(load_dt='20120101'):
+def req(load_dt="20120101"):
     #url = gen_url('20240720')
     url = gen_url(load_dt)
     r = requests.get(url)
