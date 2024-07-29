@@ -14,6 +14,7 @@ $ pip install git+https://github.com/hun0219/mov.git@<branch_name>
 $ git clone <URL>
 $ cd <DIR>
 $ source .venv/bin/activate
+$ pdm install
 $ pytest
 
 # optin
