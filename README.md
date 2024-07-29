@@ -27,3 +27,6 @@ cat ~/.zshrc | tail -n 3
 # MY_ENV
 export MOVIE_API_KEY="<KEY>"
 ```
+
+## 트러블슈팅
+{'faultInfo': {'message': '유효하지않은 키값입니다.', 'errorCode': '320010'}}
