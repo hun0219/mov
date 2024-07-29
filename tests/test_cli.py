@@ -1,12 +1,23 @@
-from mov.api.call import gen_url, req, get_key, req2dataframe
+from mov.api.call import gen_url, req, get_key, req2df, list2df
+import pandas as pd
 
-def test_req2dataframe():
-    l = req2dataframe()
+def test_list2df():
+    df = list2df()
+    print(df)
+    assert isinstance(df, pd.DataFrame)
+    assert 'rnum' in df.columns
+    assert 'openDt' in df.columns
+    assert 'salesAmt' in df.columns
+    assert 'scrnCnt' in df.columns
+
+def test_req2df():
+    l = req2df()
     print(l) #리스트
-    assert len(1) > 0
+    assert len(l) > 0
     v = l[0]
     assert 'rnum' in v.keys()
     assert v['rnum'] == '1'
+    #l = type('boxOfficeResult')
 
 def test_비밀키숨기기():
     key = get_key()

@@ -1,12 +1,23 @@
+import pandas as pd
 import requests
 import json
 import os
 
+def list2df():
+    l = req2df()
+    df = pd.DataFrame(l)
+    return df
 
-def req2dataframe():
-    code, data = req()
+def req2df() -> list:
+    _, data = req()
     #data.get('').get('')
     l = data['boxOfficeResult']['dailyBoxOfficeList']
+#    l = [
+#            {'rnum': '1', 'rank': '1'},
+#            {'rnum': '2', 'rank': '2'}
+#        ]
+#    df = pd.DataFrame(l)
+    
     return l
 
 
