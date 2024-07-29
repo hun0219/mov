@@ -3,8 +3,8 @@ import pandas as pd
 
 
 def test_save2df():
-    df = save2df()
-    assert isinstance(df, pd,DataFrame)
+    df = save2df(load_dt='20241231')
+    assert isinstance(df, pd.DataFrame)
     assert 'load_dt' in df.columns
 
 
@@ -35,6 +35,9 @@ def test_gen_url():
     #assert True
     assert "http" in url
     assert "kobis" in url
+
+#    ulr = gen_url('20241231')
+#    assert '20241231' in url
 
 def test_req():
     code, data = req()
