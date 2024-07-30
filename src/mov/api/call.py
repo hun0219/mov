@@ -7,6 +7,27 @@ import os
 def echo(yaho):
     return yaho
 
+def apply_type2df(load_dt="20120101", path="~/tmp/test_parquet"):
+    df = pd.read_parquet(f'{path}/load_dt={load_dt}')
+    #df['rnum'] = pd.to_numeric(df['rnum'])
+    #df['rank'] = pd.to_numeric(df['rank'])
+
+    num_cols=['rnum', 'rank', 'rankInten', 'salesAmt',
+            'audiCnt', 'audiAcc', 'scrnCnt', 'showCnt',
+            'salesShare', 'salesInten', 'salesChange',
+            'audiInten', 'audiChange']
+
+    #for col_name in num_cols:
+    #    df[col_name] = pd.to_numeric(df[col_name])
+
+    df[num_cols] = df[num_cols].apply(pd.to_numeric) # for문 대신 to_numeric 전부 돌림
+
+    return df
+#파이썬에 타입 찍어보는법
+#import pandas ad pd
+#df = pd.read_parquet(f'~/tmp/test_parquet/load_dt=20120101')
+#df['rnum'] = pd.to_numeric(df['rnum']) rnum은 영화사이트에서 제공
+#df.dtype
 
 def save2df(load_dt='20120101'):
     df = list2df(load_dt)
