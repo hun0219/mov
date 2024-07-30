@@ -1,5 +1,10 @@
-from mov.api.call import gen_url, req, get_key, req2df, list2df, save2df
+from mov.api.call import gen_url, req, get_key, req2df, list2df, save2df, echo
 import pandas as pd
+
+
+def test_echo():
+    r = echo("hello")
+    assert r == "hello"
 
 
 def test_save2df():

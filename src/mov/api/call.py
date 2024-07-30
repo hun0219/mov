@@ -3,6 +3,11 @@ import requests
 import json
 import os
 
+
+def echo(yaho):
+    return yaho
+
+
 def save2df(load_dt='20120101'):
     df = list2df(load_dt)
     # df에 load_dt 컬럼 추가 (조회 일자 YYYYYMMDD 형식)
