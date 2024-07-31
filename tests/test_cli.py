@@ -47,6 +47,7 @@ def test_req2df():
     assert v['rnum'] == '1'
     #l = type('boxOfficeResult')
 
+    
 def test_비밀키숨기기():
     key = get_key()
     assert key
@@ -59,6 +60,7 @@ def test_gen_url():
     
     d = {"multiMovieYn": "N"}
     url = gen_url(req_val = d)
+    print(url)
     assert 'multiMovieYn' in url
 
 #    ulr = gen_url('20241231')
