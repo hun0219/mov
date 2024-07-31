@@ -4,7 +4,7 @@ import pandas as pd
 
 
 
-def test_at2df():
+def test_at2df(): #for문으로 num_c type int로 치환
     df = apply_type2df()
     assert isinstance(df, pd.DataFrame)
     #assert str(df['rnum'].dtype) in ['int64']
