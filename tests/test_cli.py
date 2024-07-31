@@ -56,6 +56,10 @@ def test_gen_url():
     #assert True
     assert "http" in url
     assert "kobis" in url
+    
+    d = {"multiMovieYn": "N"}
+    url = gen_url(req_val = d)
+    assert 'multiMovieYn' in url
 
 #    ulr = gen_url('20241231')
 #    assert '20241231' in url
