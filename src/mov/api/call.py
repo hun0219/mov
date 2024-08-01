@@ -31,12 +31,14 @@ def apply_type2df(load_dt="20120101", path="~/tmp/test_parquet"):
 
 def save2df(load_dt='20120101', url_param={}):
     """airflow 호출 지점"""
-    df = list2df(load_dt, url_param)
+    #df = list2df(load_dt, url_param)
+    df = list2df(url_param=url_param, load_dt=load_dt)
     # df에 load_dt 컬럼 추가 (조회 일자 YYYYYMMDD 형식)
     # 아래 파일 저장시 load_dt 기본으로 파티셔닝
     df['load_dt']= load_dt
-    print(df.head().iloc[:,4:10]) # 4번쨰 행부터 9열까지 인덱싱
-    df.to_parquet('~/tmp/test_parquet',partition_cols=['load_dt'])
+    #print(df.head().iloc[:,4:10]) # 4번쨰 행부터 9열까지 인덱싱
+    #아래 파일 저장시 load_dt 기준으로 파티셔닝
+    #df.to_parquet('~/tmp/test_parquet',partition_cols=['load_dt'])
     return df
 
 def list2df(load_dt='20120101', url_param={}):
@@ -71,12 +73,12 @@ def req(load_dt="20120101", url_param={}):
     #print(data)
     return code, data
 
-def gen_url(dt="20120101", req_val = {}):
+def gen_url(dt="20120101", url_param = {}):
 #def gen_url(dt="20120101", req_val = {}): # 비어있는 딕셔너리는 for 루프가 안돔
     base_url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json"
     key = get_key()
     url = f"{base_url}?key={key}&targetDt={dt}"
-    for key, value in req_val.items():
+    for key, value in url_param.items():
         #url = url + "&multiMovieYn=N"
         url = url + f"&{key}={value}"
 
