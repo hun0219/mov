@@ -70,7 +70,7 @@ def req(load_dt="20120101", url_param={}):
     r = requests.get(url)
     code = r.status_code
     data = r.json()
-    #print(data)
+    print(data)
     return code, data
 
 def gen_url(dt="20120101", url_param = {}):

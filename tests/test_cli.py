@@ -60,7 +60,8 @@ def test_gen_url():
     assert "kobis" in url
     
     d = {"multiMovieYn": "N"}
-    url = gen_url(req_val = d)
+    #url = gen_url(req_val = d)
+    url = gen_url(url_param = d)
     print(url)
     assert 'multiMovieYn' in url
 
